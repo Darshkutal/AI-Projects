@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">◈</span>
+          <span class="logo-text">Dashboard</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">◉</span>
+          <span>Overview</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">▣</span>
+          <span>Analytics</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">◎</span>
+          <span>Reports</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">◇</span>
+          <span>Users</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">▤</span>
+          <span>Settings</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="avatar">DK</div>
+          <div class="user-info">
+            <span class="user-name">User</span>
+            <span class="user-role">Admin</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <header class="header">
+        <div class="header-left">
+          <h1>Overview</h1>
+          <p class="subtitle">Welcome back! Here's what's happening today.</p>
+        </div>
+        <div class="header-actions">
+          <div class="search-box">
+            <span class="search-icon">⌕</span>
+            <input type="text" placeholder="Search...">
+          </div>
+          <button class="btn btn-primary">+ New Report</button>
+        </div>
+      </header>
+
+      <!-- Stats cards -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Total Revenue</span>
+            <span class="stat-trend positive">+12.5%</span>
+          </div>
+          <div class="stat-value">$45,231</div>
+          <div class="stat-chart mini-chart" data-values="30,45,35,50,49,60,70"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Active Users</span>
+            <span class="stat-trend positive">+8.2%</span>
+          </div>
+          <div class="stat-value">2,350</div>
+          <div class="stat-chart mini-chart" data-values="20,35,40,45,55,50,65"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Conversions</span>
+            <span class="stat-trend negative">-2.4%</span>
+          </div>
+          <div class="stat-value">3,462</div>
+          <div class="stat-chart mini-chart" data-values="45,40,38,42,48,45,44"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-label">Avg. Session</span>
+            <span class="stat-trend positive">+4.1%</span>
+          </div>
+          <div class="stat-value">4m 32s</div>
+          <div class="stat-chart mini-chart" data-values="25,30,28,35,40,38,42"></div>
+        </div>
+      </section>
+
+      <!-- Charts row -->
+      <section class="content-grid">
+        <div class="card chart-card">
+          <div class="card-header">
+            <h2>Revenue Overview</h2>
+            <div class="card-actions">
+              <select class="period-select">
+                <option>Last 7 days</option>
+                <option>Last 30 days</option>
+                <option>Last 90 days</option>
+              </select>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+        <div class="card chart-card small">
+          <div class="card-header">
+            <h2>Traffic Sources</h2>
+          </div>
+          <div class="chart-container pie-container">
+            <canvas id="trafficChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Table section -->
+      <section class="content-grid">
+        <div class="card table-card full-width">
+          <div class="card-header">
+            <h2>Recent Activity</h2>
+            <a href="#" class="link">View all</a>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Action</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar sm">JD</div>
+                      <span>John Doe</span>
+                    </div>
+                  </td>
+                  <td>Completed purchase</td>
+                  <td><span class="badge success">Success</span></td>
+                  <td>2 min ago</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar sm">AS</div>
+                      <span>Alice Smith</span>
+                    </div>
+                  </td>
+                  <td>Signed up</td>
+                  <td><span class="badge success">Success</span></td>
+                  <td>15 min ago</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar sm">BJ</div>
+                      <span>Bob Johnson</span>
+                    </div>
+                  </td>
+                  <td>Payment failed</td>
+                  <td><span class="badge error">Failed</span></td>
+                  <td>1 hour ago</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar sm">EW</div>
+                      <span>Emma Wilson</span>
+                    </div>
+                  </td>
+                  <td>Profile updated</td>
+                  <td><span class="badge success">Success</span></td>
+                  <td>2 hours ago</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="user-cell">
+                      <div class="avatar sm">MK</div>
+                      <span>Mike Brown</span>
+                    </div>
+                  </td>
+                  <td>Subscription renewed</td>
+                  <td><span class="badge pending">Pending</span></td>
+                  <td>3 hours ago</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
